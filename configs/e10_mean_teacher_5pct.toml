@@ -1,0 +1,33 @@
+# Mean Teacher: student on strong views, EMA teacher on weak views.
+[data]
+root = "data/pcam"
+batch_size = 64
+eval_batch_size = 256
+workers = 4
+labeled_fraction = 0.05
+augmentation = "weak_strong"
+normalize = "imagenet"
+
+[model]
+name = "inception_v3"
+pretrained = true
+
+[optimizer]
+name = "adam"
+learning_rate = 0.0001
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 3
+
+[training]
+mode = "mean_teacher"
+epochs = 100
+seed = 17
+patience = 20
+consistency_weight = 1.0
+ema_decay = 0.999
+
+[output]
+experiment_name = "e10-mean-teacher-5pct"

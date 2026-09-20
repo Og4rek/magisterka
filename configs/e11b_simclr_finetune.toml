@@ -1,0 +1,31 @@
+# Set model.checkpoint to the best.pt produced by e11_simclr_resnet50.
+[data]
+root = "data/pcam"
+batch_size = 96
+eval_batch_size = 96
+workers = 4
+augmentation = "pathology"
+normalize = "imagenet"
+
+[model]
+name = "resnet50"
+pretrained = false
+checkpoint = "runs/e11-simclr-resnet50/best.pt"
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0001
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 3
+
+[training]
+mode = "supervised"
+epochs = 80
+seed = 17
+patience = 15
+
+[output]
+experiment_name = "e11b-simclr-resnet50-finetune"

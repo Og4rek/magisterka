@@ -1,0 +1,44 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+.matplotlib/
+
+# Credentials and personal editor state
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Data, trained weights, and raw experiment output
+data/
+dataset/
+runs/
+output/
+logs/
+*.h5
+*.hdf5
+*.tif
+*.tiff
+*.svs
+*.pt
+*.pth
+*.ckpt
+events.out.tfevents.*
+
+# Private manuscript and working notes
+LateX/
+research/
+notatki/
+.repo-backups/
+*.pdf

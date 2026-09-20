@@ -1,0 +1,37 @@
+[data]
+root = "data/pcam"
+batch_size = 128
+eval_batch_size = 64
+workers = 6
+augmentation = "pathology"
+normalize = "half"
+
+[model]
+name = "vit_small"
+
+[model.parameters]
+image_size = 96
+patch_size = 16
+embedding_dim = 384
+depth = 8
+heads = 6
+mlp_ratio = 4.0
+dropout = 0.1
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0003
+weight_decay = 0.05
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 10
+
+[training]
+mode = "supervised"
+epochs = 150
+seed = 17
+patience = 25
+
+[output]
+experiment_name = "e12-vit-small-16"

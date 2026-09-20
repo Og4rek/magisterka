@@ -1,0 +1,45 @@
+# End-to-end smoke test. This is not a benchmark configuration.
+[data]
+root = "data/pcam"
+image_size = 96
+batch_size = 128
+workers = 4
+labeled_fraction = 0.01
+augmentation = "pathology"
+normalize = "pcam"
+subset_seed = 17
+pin_memory = true
+
+[model]
+name = "small_cnn"
+pretrained = false
+
+[model.parameters]
+width = 16
+dropout = 0.25
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0003
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 0
+minimum_learning_rate = 0.000001
+
+[training]
+mode = "supervised"
+epochs = 2
+seed = 17
+amp = true
+gradient_clip_norm = 1.0
+accumulation_steps = 1
+monitor = "auc_roc"
+patience = 2
+robust_loss = "bce"
+
+[output]
+directory = "runs"
+experiment_name = "smoke-smallcnn-2epochs"
+save_predictions = true

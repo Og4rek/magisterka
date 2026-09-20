@@ -1,0 +1,32 @@
+# Set model.checkpoint to the best.pt produced by e11_simclr_resnet50.
+[data]
+root = "data/pcam"
+batch_size = 128
+eval_batch_size = 64
+workers = 8
+augmentation = "minimal"
+normalize = "imagenet"
+
+[model]
+name = "resnet50"
+pretrained = false
+checkpoint = "runs/e11-simclr-resnet50/best.pt"
+freeze_encoder = true
+
+[optimizer]
+name = "adam"
+learning_rate = 0.001
+weight_decay = 0.0
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 0
+
+[training]
+mode = "supervised"
+epochs = 50
+seed = 17
+patience = 10
+
+[output]
+experiment_name = "e11a-simclr-resnet50-linear-probe"

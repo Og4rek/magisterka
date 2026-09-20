@@ -1,0 +1,36 @@
+[data]
+root = "data/pcam"
+batch_size = 96
+eval_batch_size = 48
+workers = 4
+augmentation = "pathology"
+normalize = "half"
+
+[model]
+name = "lgvit"
+
+[model.parameters]
+image_size = 96
+embedding_dim = 256
+depth = 6
+heads = 8
+mlp_ratio = 3.0
+dropout = 0.1
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0003
+weight_decay = 0.05
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 10
+
+[training]
+mode = "supervised"
+epochs = 150
+seed = 17
+patience = 25
+
+[output]
+experiment_name = "e13-local-global-vit"

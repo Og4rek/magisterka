@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or its recorded results, please cite this repository and the relevant original papers."
+title: "PCam-D4Loc and Histopathology Benchmarks"
+type: software
+authors:
+  - family-names: "Łyczko"
+    given-names: "Piotr"
+repository-code: "https://github.com/Og4rek/magisterka"
+url: "https://github.com/Og4rek/magisterka"
+license: MIT
+keywords:
+  - PatchCamelyon
+  - computational pathology
+  - group equivariance
+  - explainable AI
+  - PyTorch

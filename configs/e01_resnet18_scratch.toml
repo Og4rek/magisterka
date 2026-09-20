@@ -1,0 +1,28 @@
+[data]
+root = "data/pcam"
+batch_size = 128
+workers = 4
+augmentation = "pathology"
+normalize = "pcam"
+
+[model]
+name = "resnet18"
+pretrained = false
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0003
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 5
+
+[training]
+mode = "supervised"
+epochs = 100
+seed = 17
+patience = 20
+
+[output]
+experiment_name = "e01-resnet18-scratch"

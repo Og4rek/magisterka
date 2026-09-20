@@ -1,0 +1,34 @@
+[data]
+root = "data/pcam"
+batch_size = 64
+eval_batch_size = 32
+workers = 4
+augmentation = "pathology"
+normalize = "half"
+
+[model]
+name = "lotenet"
+
+[model.parameters]
+physical_dim = 6
+bond_dims = [12, 20, 32]
+permutation_count = 4
+dropout = 0.2
+
+[optimizer]
+name = "adam"
+learning_rate = 0.0002
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 5
+
+[training]
+mode = "supervised"
+epochs = 120
+seed = 17
+patience = 20
+
+[output]
+experiment_name = "e15-lotenet"

@@ -1,0 +1,33 @@
+# Controlled symmetric-label-noise experiment.
+[data]
+root = "data/pcam"
+batch_size = 128
+eval_batch_size = 128
+workers = 8
+augmentation = "pathology"
+normalize = "pcam"
+
+[model]
+name = "resnet18"
+pretrained = false
+
+[optimizer]
+name = "adamw"
+learning_rate = 0.0003
+weight_decay = 0.0001
+
+[scheduler]
+name = "cosine"
+warmup_epochs = 5
+
+[training]
+mode = "supervised"
+epochs = 100
+seed = 17
+patience = 20
+noise_rate = 0.2
+noise_seed = 23
+robust_loss = "symmetric_cross_entropy"
+
+[output]
+experiment_name = "e14-resnet18-noise20-sce"
